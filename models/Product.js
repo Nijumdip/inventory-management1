@@ -84,16 +84,15 @@ const productSchema = mongoose.Schema({
        if (this.quantity == 0) {
         this.status = 'out-of-stock'
       }
-  
      next()
    })
   
   
-  //  productSchema.post('save',function(doc,next){
-  //   console.log('After saving data');
+  /*  productSchema.post('save',function(doc,next){
+    console.log('After saving data');
   
-  //   next()
-  // })
+    next()
+  }) */
   
   productSchema.methods.logger= function(){
     console.log(` Data saved for ${this.name}`);
