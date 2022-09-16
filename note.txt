@@ -1,0 +1,18 @@
+const products = await Product.find({_id: "6320b9e9fe12ffba777e5996", name:"Chal"});
+const products = await Product.find({ $or: [{ _id: "6320b9e9fe12ffba777e5996" }, { name: "Chal" }] });
+const products = await Product.find({ status: {$ne: "out-of-stock"} });
+const products = await Product.find({ quantity: {$gt: 100} });
+const products = await Product.find({ quantity: {$gte: 100} });
+const products = await Product.find({ name: {$in: ["Chal", "Dhal"]} });
+const products = await Product.find({}, "name quantity");
+const products = await Product.find({}, "-name -quantity");
+const products = await Product.find({}).limit(1);
+const products = await Product.find({}).sort({quantity: -1});
+const products = await Product.find({}).select({name: 1});
+const products = await Product.where("name").equals("Chal").where("quantity").gt(100)
+const products = await Product.where("name").equals(/\w/).where("quantity").gt(100).limit(2)
+const products = await Product
+    .where("name").equals(/\w/)
+    .where("quantity").gt(100).lt(600)
+    .limit(2).sort({quantity: -1}) 
+const product = await Product.findById("6320b9e9fe12ffba777e5996");
